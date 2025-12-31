@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
-gem "sinatra"
-gem "mongo"
-gem "bson"
+gem "sinatra", "~> 2.2"
+gem "mongo", "~> 2.21"
+gem "bson", "~> 4.15"
