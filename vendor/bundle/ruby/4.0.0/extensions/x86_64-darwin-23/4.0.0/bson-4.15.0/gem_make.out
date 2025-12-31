@@ -1,0 +1,112 @@
+current directory: /Users/nipulkanishka/student_web/vendor/bundle/ruby/4.0.0/gems/bson-4.15.0/ext/bson
+/usr/local/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/nipulkanishka/student_web/vendor/bundle/ruby/4.0.0/gems/bson-4.15.0/ext/bson
+make -j9 DESTDIR\= sitearchdir\=./.gem.20251231-86631-yd90xh sitelibdir\=./.gem.20251231-86631-yd90xh clean
+
+current directory: /Users/nipulkanishka/student_web/vendor/bundle/ruby/4.0.0/gems/bson-4.15.0/ext/bson
+make -j9 DESTDIR\= sitearchdir\=./.gem.20251231-86631-yd90xh sitelibdir\=./.gem.20251231-86631-yd90xh
+compiling bytebuf.c
+compiling endian.c
+compiling init.c
+compiling libbson-utf8.c
+compiling read.c
+compiling util.c
+compiling write.c
+read.c:33:49: warning: function 'pvt_raise_decode_error' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   33 | void pvt_raise_decode_error(volatile VALUE msg) {
+      |                                                 ^
+bytebuf.c:90:19: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'unsigned int' [-Wshorten-64-to-32]
+   90 |   return UINT2NUM(READ_SIZE(b));
+      |          ~~~~~~~~ ^~~~~~~~~~~~
+./bson-native.h:58:36: note: expanded from macro 'READ_SIZE'
+   58 |   (byte_buffer_ptr->write_position - byte_buffer_ptr->read_position)
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bytebuf.c:98:21: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+   98 |   return INT2NUM(b->read_position);
+      |          ~~~~~~~ ~~~^~~~~~~~~~~~~
+bytebuf.c:116:21: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  116 |   return INT2NUM(b->write_position);
+      |          ~~~~~~~ ~~~^~~~~~~~~~~~~~
+read.c:121:27: warning: implicit conversion loses integer precision: 'long' to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  121 |   const uint32_t length = FIX2LONG(i);
+      |                  ~~~~~~   ^~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/arithmetic/long.h:46:22: note: expanded from macro 'FIX2LONG'
+   46 | #define FIX2LONG     RB_FIX2LONG          /**< @old{RB_FIX2LONG} */
+      |                      ^
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/arithmetic/long.h:53:22: note: expanded from macro 'RB_FIX2LONG'
+   53 | #define RB_FIX2LONG  rb_fix2long          /**< @alias{rb_fix2long} */
+      |                      ^
+write.c:225:14: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  225 |     length = RSTRING_LEN(utf8_string);
+      |            ~ ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/core/rstring.h:46:27: note: expanded from macro 'RSTRING_LEN'
+   46 | #define RSTRING_LEN       RSTRING_LEN
+      |                           ^
+write.c:248:12: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  248 |   length = RSTRING_LEN(utf8_string);
+      |          ~ ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/core/rstring.h:46:27: note: expanded from macro 'RSTRING_LEN'
+   46 | #define RSTRING_LEN       RSTRING_LEN
+      |                           ^
+read.c:142:5: warning: variable 'result' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
+  142 |     default:
+      |     ^~~~~~~
+write.c:292:12: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  292 |   length = RSTRING_LEN(string);
+      |          ~ ^~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/core/rstring.h:46:27: note: expanded from macro 'RSTRING_LEN'
+   46 | #define RSTRING_LEN       RSTRING_LEN
+      |                           ^
+read.c:146:10: note: uninitialized use occurs here
+  146 |   return result;
+      |          ^~~~~~
+write.c:321:26: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  321 |   const int32_t length = RSTRING_LEN(symbol_str);
+      |                 ~~~~~~   ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/core/rstring.h:46:27: note: expanded from macro 'RSTRING_LEN'
+   46 | #define RSTRING_LEN       RSTRING_LEN
+      |                           ^
+read.c:131:15: note: initialize the variable 'result' to silence this warning
+  131 |   VALUE result;
+      |               ^
+      |                = 0
+write.c:340:29: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  340 |   pvt_put_cstring(b, c_str, length, "Key");
+      |   ~~~~~~~~~~~~~~~           ^~~~~~
+write.c:370:35: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  370 |   pvt_replace_int32(b, _position, NUM2LONG(newval));
+      |   ~~~~~~~~~~~~~~~~~               ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/arithmetic/long.h:51:22: note: expanded from macro 'NUM2LONG'
+   51 | #define NUM2LONG     RB_NUM2LONG          /**< @old{RB_NUM2LONG} */
+      |                      ^
+/usr/local/Cellar/ruby/4.0.0/include/ruby-4.0.0/ruby/internal/arithmetic/long.h:57:22: note: expanded from macro 'RB_NUM2LONG'
+   57 | #define RB_NUM2LONG  rb_num2long_inline   /**< @alias{rb_num2long_inline} */
+      |                      ^
+write.c:370:24: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  370 |   pvt_replace_int32(b, _position, NUM2LONG(newval));
+      |   ~~~~~~~~~~~~~~~~~    ^~~~~~~~~
+write.c:531:29: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  531 |   new_length = new_position - position;
+      |              ~ ~~~~~~~~~~~~~^~~~~~~~~~
+write.c:532:24: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  532 |   pvt_replace_int32(b, position, new_length);
+      |   ~~~~~~~~~~~~~~~~~    ^~~~~~~~
+write.c:676:29: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  676 |   new_length = new_position - position;
+      |              ~ ~~~~~~~~~~~~~^~~~~~~~~~
+write.c:677:24: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  677 |   pvt_replace_int32(b, position, new_length);
+      |   ~~~~~~~~~~~~~~~~~    ^~~~~~~~
+3 warnings generated.
+3 warnings generated.
+11 warnings generated.
+linking shared-object bson_native.bundle
+
+current directory: /Users/nipulkanishka/student_web/vendor/bundle/ruby/4.0.0/gems/bson-4.15.0/ext/bson
+make -j9 DESTDIR\= sitearchdir\=./.gem.20251231-86631-yd90xh sitelibdir\=./.gem.20251231-86631-yd90xh install
+/usr/bin/install -c -m 0755 bson_native.bundle ./.gem.20251231-86631-yd90xh
+
+current directory: /Users/nipulkanishka/student_web/vendor/bundle/ruby/4.0.0/gems/bson-4.15.0/ext/bson
+make DESTDIR\= sitearchdir\=./.gem.20251231-86631-yd90xh sitelibdir\=./.gem.20251231-86631-yd90xh clean
