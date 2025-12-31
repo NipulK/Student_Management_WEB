@@ -1,0 +1,14 @@
+<a href="/new">Add Student</a>
+<table border="1">
+<tr><th>Name</th><th>Age</th><th>Action</th></tr>
+<% @students.each do |s| %>
+<tr>
+<td><%= s[:name] %></td>
+<td><%= s[:age] %></td>
+<td>
+<a href="/edit/<%= s[:id] %>">Edit</a>
+<a href="/delete/<%= s[:id] %>">Delete</a>
+</td>
+</tr>
+<% end %>
+</table>
