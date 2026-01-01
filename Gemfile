@@ -6,3 +6,5 @@ gem "bson", "~> 4.15"
 gem "ostruct"
 gem "logger"
 gem "bigdecimal"
+
+gem "webrick", "~> 1.9"
