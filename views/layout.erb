@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Management System</title>
   <link rel="stylesheet" href="/style.css">
+  <title>Student System</title>
 </head>
 <body>
-  <div class="container">
-    <h1>👥 Student Management</h1>
-    <%= yield %>
-  </div>
+
+<div style="text-align:right; margin:15px;">
+  <% if session[:user] %>
+    Welcome, <b><%= session[:user] %></b> |
+    <a href="/logout">Logout</a>
+  <% end %>
+</div>
+
+<h1>Student Management System</h1>
+<%= yield %>
+
 </body>
 </html>
