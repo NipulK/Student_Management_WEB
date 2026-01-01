@@ -1,3 +1,4 @@
+require 'logger'
 require 'mongo'
 Mongo::Logger.logger.level = ::Logger::FATAL
 
