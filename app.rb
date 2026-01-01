@@ -11,6 +11,12 @@ class App < Sinatra::Base
     erb :index
   end
 
+  get '/search' do
+  @students = Student.search(params[:q])
+  erb :index
+  end
+
+
   get '/new' do
     erb :new
   end
