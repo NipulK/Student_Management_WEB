@@ -2,7 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
+    bigdecimal (4.0.1)
     bson (4.15.0)
+    logger (1.7.0)
     mongo (2.22.0)
       base64
       bson (>= 4.14.1, < 6.0.0)
@@ -25,14 +27,18 @@ PLATFORMS
   x86_64-darwin-23
 
 DEPENDENCIES
+  bigdecimal
   bson (~> 4.15)
+  logger
   mongo (~> 2.21)
   ostruct
   sinatra (~> 2.2)
 
 CHECKSUMS
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
   bson (4.15.0) sha256=13266611fde7dcc5bd63d147e6ae7300a3500cb3d2fa9f9d3c6dfbff73d26fa7
+  logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   mongo (2.22.0) sha256=8eff6211f3bb29b7461e4ff6f35d1422f3966fa072c5423888b5271b8c09b6bb
   mustermann (2.0.2) sha256=cbe651b6c039e4cefa635b8087398ff59d74f83591064926cc62d37ac4c7e054
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
