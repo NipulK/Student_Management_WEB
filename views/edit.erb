@@ -1,5 +1,15 @@
 <form action="/update/<%= @student[:id] %>" method="post">
-Name: <input name="name" value="<%= @student[:name] %>"><br>
-Age: <input name="age" value="<%= @student[:age] %>"><br>
-<button>Update</button>
+  <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Edit Student</h2>
+  
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required value="<%= @student[:name] %>" placeholder="Enter student name">
+  </div>
+  
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required value="<%= @student[:age] %>" placeholder="Enter age" min="1" max="100">
+  </div>
+  
+  <button type="submit">🔄 Update Student</button>
 </form>
