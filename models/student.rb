@@ -26,4 +26,9 @@ class Student
   def self.delete(id)
     COL.find(_id: BSON::ObjectId(id)).delete_one
   end
+
+  def self.search(keyword)
+  COL.find({ name: /#{keyword}/i }).to_a
+  end
+  
 end
