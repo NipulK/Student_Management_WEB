@@ -1,5 +1,7 @@
+require 'bundler/setup'
 require 'sinatra'
 require './models/student'
+
 
 set :bind, '0.0.0.0'
 
@@ -31,3 +33,5 @@ get '/delete/:id' do
   Student.delete(params[:id])
   redirect '/'
 end
+
+
