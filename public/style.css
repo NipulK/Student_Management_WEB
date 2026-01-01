@@ -1,0 +1,35 @@
+body {
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  font-family: Arial;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  background: white;
+  color: black;
+  width: 70%;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #333;
+}
+
+a, button {
+  padding: 6px 14px;
+  background: #1d2671;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+a:hover, button:hover {
+  background: #c33764;
+}
