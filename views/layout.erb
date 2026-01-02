@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/style.css">
   <title>Student System</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<div style="text-align:right; margin:15px;">
-  <% if session[:user] %>
+<header class="topbar">
+  <div class="logo">🎓 Student System</div>
+  <div class="user-area">
     Welcome, <b><%= session[:user] %></b> |
     <a href="/logout">Logout</a>
-  <% end %>
-</div>
+  </div>
+</header>
 
-<h1>Student Management System</h1>
-<%= yield %>
+<main class="container">
+  <%= yield %>
+</main>
+
 
 </body>
 </html>
