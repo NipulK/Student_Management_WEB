@@ -9,7 +9,7 @@
 body.light {
   --bg: linear-gradient(120deg, #f8fafc, #e2e8f0);
   --card: #ffffff;
-  --text: #020617;
+  --text: #ffffff;
   --primary: #6366f1;
   --accent: #0ea5e9;
 }
