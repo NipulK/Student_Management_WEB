@@ -62,14 +62,15 @@ tr:hover {
 }
 
 .actions a {
-  padding: 9px 16px;
-  border-radius: 12px;
+  padding: 7px 12px;
+  border-radius: 10px;
   font-weight: 600;
+  font-size: 0.95rem;
   background: rgba(99,102,241,.15);
   color: #a5b4fc;
   border: 1px solid rgba(99,102,241,.35);
   text-decoration: none;
-  transition: .25s;
+  transition: .2s ease;
 }
 
 .actions .edit-btn:hover {
@@ -77,6 +78,7 @@ tr:hover {
   color: #020617;
   box-shadow: 0 0 20px #22d3ee;
 }
+/**/
 
 .actions .delete-btn:hover {
   background: linear-gradient(90deg,#dc2626,#ef4444);
