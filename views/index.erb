@@ -10,25 +10,28 @@
     </form>
   </div>
 
-  
   <table>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Actions</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-    <% @students.each do |s| %>
-    <tr>
-      <td><%= s[:name] %></td>
-      <td><%= s[:age] %></td>
-      <td>
-        <div class="actions">
-          <a class="edit-btn" href="/edit/<%= s[:_id] %>">Edit</a>
-          <a class="delete-btn" href="/delete/<%= s[:_id] %>">Delete</a>
-        </div>
-      </td>
-    </tr>
-    <% end %>
+    <tbody>
+      <% @students.each do |s| %>
+      <tr>
+        <td data-label="Name"><%= s[:name] %></td>
+        <td data-label="Age"><%= s[:age] %></td>
+        <td data-label="Actions">
+          <div class="actions">
+            <a class="edit-btn" href="/edit/<%= s[:_id] %>">✏ Edit</a>
+            <a class="delete-btn" href="/delete/<%= s[:_id] %>">🗑 Delete</a>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

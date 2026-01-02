@@ -3,25 +3,42 @@
 <head>
   <title>Student System</title>
   <link rel="stylesheet" href="/dashboard.css">
-  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
 <% unless request.path_info == '/login' %>
-  <header class="topbar">
-    <div class="logo">🎓 Student System</div>
-    <div class="user-area">
-      Welcome, <b><%= session[:user] %></b> |
-      <a href="/logout">Logout</a>
-    </div>
-  </header>
-<% end %>
+<header class="topbar">
+  <div class="logo">🎓 Student System</div>
 
+  <div class="user-area">
+    <button onclick="toggleTheme()" class="theme-btn">🌗 Theme</button>
+    Welcome, <b><%= session[:user] %></b>
+    <a href="/logout">Logout</a>
+  </div>
+</header>
+<% end %>
 
 <main class="container">
   <%= yield %>
 </main>
 
+<footer class="footer">
+  © 2026 Student Management System
+</footer>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+}
+window.onload = () => {
+  if(localStorage.getItem("theme") === "light"){
+    document.body.classList.add("light");
+  }
+}
+</script>
 
 </body>
 </html>
