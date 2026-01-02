@@ -107,14 +107,16 @@ tr:hover {
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
-  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid #4f54c7;
+  background: #6366f1;
+  color: #0b1021;
+  box-shadow: 0 10px 20px rgba(99,102,241,0.35);
 }
 
 .edit-btn {
-  background: linear-gradient(90deg, #818cf8, #6366f1);
+  background: #6366f1;
   color: #0b1021;
-  box-shadow: 0 10px 20px rgba(99,102,241,0.35);
 }
 
 .edit-btn:hover {
@@ -123,13 +125,15 @@ tr:hover {
 }
 
 .delete-btn {
-  background: linear-gradient(90deg, #fb7185, #ef4444);
-  color: #140d0d;
-  box-shadow: 0 10px 20px rgba(239,68,68,0.35);
+  background: #6366f1;
+  color: #0b1021;
 }
 
 .delete-btn:hover {
   transform: translateY(-1px);
+  background: #ef4444;
+  color: #0b1021;
+  border-color: #ef4444;
   box-shadow: 0 12px 24px rgba(239,68,68,0.45);
 }
 
