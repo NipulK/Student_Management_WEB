@@ -1,15 +1,19 @@
-<form action="/create" method="post">
-  <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Add New Student</h2>
-  
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required placeholder="Enter student name">
-  </div>
-  
-  <div class="form-group">
-    <label for="age">Age</label>
-    <input type="number" id="age" name="age" required placeholder="Enter age" min="1" max="100">
-  </div>
-  
-  <button type="submit">✅ Save Student</button>
-</form>
+<link rel="stylesheet" href="/forms.css">
+
+<div class="form-container">
+  <h2>Add Student</h2>
+
+  <form action="/create" method="post">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" name="age" required>
+    </div>
+
+    <button class="form-btn">Save Student</button>
+  </form>
+</div>
