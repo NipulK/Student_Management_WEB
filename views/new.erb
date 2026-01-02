@@ -1,20 +1,19 @@
 <link rel="stylesheet" href="/forms.css">
 
-<div class="form-container">
+<div class="form-container fade-in">
   <h2>Add Student</h2>
 
   <form action="/create" method="post">
-    <div class="form-group">
+    <div class="input-box">
+      <input type="text" name="name" required>
       <label>Full Name</label>
-      <input name="name" required>
     </div>
 
-    <div class="form-group">
-      <label>Age</label>
+    <div class="input-box">
       <input type="number" name="age" required>
+      <label>Age</label>
     </div>
 
-    <button class="form-btn">Save Student</button>
+    <button class="neon-btn">Save Student</button>
   </form>
 </div>
-

@@ -4,17 +4,16 @@
   <h2>Edit Student</h2>
 
   <form action="/update/<%= @student[:_id] %>" method="post">
-    <div class="form-group">
+    <div class="input-box">
+      <input type="text" name="name" value="<%= @student[:name] %>" required>
       <label>Full Name</label>
-      <input name="name" value="<%= @student[:name] %>" required>
     </div>
 
-    <div class="form-group">
-      <label>Age</label>
+    <div class="input-box">
       <input type="number" name="age" value="<%= @student[:age] %>" required>
+      <label>Age</label>
     </div>
 
-    <button class="form-btn">Update Student</button>
+    <button class="neon-btn">Update Student</button>
   </form>
 </div>
-
