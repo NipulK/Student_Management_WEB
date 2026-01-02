@@ -64,6 +64,7 @@ body {
   to { opacity: 1; transform: none; }
 }
 
+
 .card h2 {
   color: var(--primary);
   margin-bottom: 20px;
