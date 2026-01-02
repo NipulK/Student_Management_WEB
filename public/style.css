@@ -92,6 +92,45 @@ tr:hover {
   background: rgba(99,102,241,0.1);
 }
 
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.actions a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.edit-btn {
+  background: linear-gradient(90deg, #818cf8, #6366f1);
+  color: #0b1021;
+  box-shadow: 0 10px 20px rgba(99,102,241,0.35);
+}
+
+.edit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(99,102,241,0.45);
+}
+
+.delete-btn {
+  background: linear-gradient(90deg, #fb7185, #ef4444);
+  color: #140d0d;
+  box-shadow: 0 10px 20px rgba(239,68,68,0.35);
+}
+
+.delete-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(239,68,68,0.45);
+}
+
 .footer {
   margin-top: 40px;
   text-align: center;

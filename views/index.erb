@@ -1,40 +1,33 @@
-<div class="header">
-  <h2 style="margin: 0; color: #2c3e50; flex-grow: 1;">Students List</h2>
-  <a href="/new" class="add-student-btn">+ Add New Student</a>
-</div>
+<div class="card">
+  <h2>Students</h2>
 
-<form action="/search" method="get">
-  <input type="text" name="q" placeholder="Search student name">
-  <button>Search</button>
-</form>
+  <div class="action-bar">
+    <a href="/new">+ Add Student</a>
 
-<table>
+    <form action="/search" method="get">
+      <input type="text" name="q" placeholder="Search by name">
+      <button>Search</button>
+    </form>
+  </div>
+
+  <table>
     <tr>
       <th>Name</th>
       <th>Age</th>
       <th>Actions</th>
     </tr>
-  </thead>
-  <tbody>
-    <% if @students && @students.length > 0 %>
-      <% @students.each do |s| %>
-        <tr>
-          <td><strong><%= s[:name] %></strong></td>
-          <td><%= s[:age] %></td>
-          <td>
-            <div class="action-buttons">
-              <a href="/edit/<%= s[:_id] %>" class="edit-btn">✏️ Edit</a>
-              <a href="/delete/<%= s[:_id] %>" class="delete-btn">🗑️ Delete</a>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-    <% else %>
-      <tr>
-        <td colspan="3" style="text-align: center; padding: 40px; color: #999;">
-          No students found. <a href="/new" style="color: #667eea; text-decoration: underline;">Add one now</a>
-        </td>
-      </tr>
+
+    <% @students.each do |s| %>
+    <tr>
+      <td><%= s[:name] %></td>
+      <td><%= s[:age] %></td>
+      <td>
+        <div class="actions">
+          <a class="edit-btn" href="/edit/<%= s[:_id] %>">✏ Edit</a>
+          <a class="delete-btn" href="/delete/<%= s[:_id] %>">🗑 Delete</a>
+        </div>
+      </td>
+    </tr>
     <% end %>
-  </tbody>
-</table>
+  </table>
+</div>
