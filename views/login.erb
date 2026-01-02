@@ -1,17 +1,25 @@
-<div class="login-container">
-  <h2>Admin Access</h2>
-
-  <form action="/login" method="post" class="login-form">
-    <div class="input-box">
-      <input type="text" name="username" required>
-      <label>Username</label>
+<div class="auth-page">
+  <div class="login-card">
+    <div class="login-header">
+      <p class="eyebrow">Secure Access</p>
+      <h2>Admin Login</h2>
+      <p class="sub">Use your credentials to continue.</p>
     </div>
 
-    <div class="input-box">
-      <input type="password" name="password" required>
-      <label>Password</label>
-    </div>
+    <form action="/login" method="post" class="login-form">
+      <div class="input-box">
+        <input type="text" name="username" required placeholder=" ">
+        <label>Username</label>
+      </div>
 
-    <button class="neon-btn">LOGIN</button>
-  </form>
+      <div class="input-box">
+        <input type="password" name="password" required placeholder=" ">
+        <label>Password</label>
+      </div>
+
+      <button type="submit" class="neon-btn">Login</button>
+    </form>
+
+    <p class="helper-text">Forgot your password? Contact the administrator.</p>
+  </div>
 </div>
