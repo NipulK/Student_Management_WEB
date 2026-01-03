@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/auth.css">
+
 <div class="auth-page">
   <div class="login-card">
+
     <div class="login-header">
       <p class="eyebrow">Secure Access</p>
       <h2>Admin Login</h2>
@@ -8,8 +10,9 @@
     </div>
 
     <% if @error %>
-      <div class="login-error">
-        <%= @error %>
+      <div class="alert-box">
+        <span class="alert-icon">⚠</span>
+        <span class="alert-text"><%= @error %></span>
       </div>
     <% end %>
 
@@ -18,7 +21,6 @@
         <input type="text" name="username" required placeholder=" ">
         <label>Username</label>
       </div>
-
 
       <div class="input-box">
         <input type="password" name="password" required placeholder=" ">
@@ -29,5 +31,11 @@
     </form>
 
     <p class="helper-text">Forgot your password? Contact the administrator.</p>
+
   </div>
+
+  <div class="auth-footer">
+    © 2026 Student Management System
+  </div>
+
 </div>
