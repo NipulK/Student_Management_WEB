@@ -1,20 +1,31 @@
 require 'bundler/setup'
+require 'webrick'
 require 'sinatra/base'
-
 require './models/student'
 require './models/user'
 
+require 'mongo'
+require 'logger'
+
+Mongo::Logger.logger.level = ::Logger::FATAL
+
+DB = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_web')
+
+
 class App < Sinatra::Base
-  enable :sessions
-  set :session_secret, "student_secret_key"
-  set :bind, '0.0.0.0'
+  use Rack::Session::Cookie,
+      key: 'student.session',
+      path: '/',
+      secret: 'very_long_secret_key_123456789',
+      expire_after: 86400
+
+  set :bind, '127.0.0.1'
   set :port, 4567
 
   before do
     redirect '/login' unless session[:user] || request.path_info == '/login'
   end
 
-  # ---------- AUTH ----------
   get '/login' do
     erb :login
   end
@@ -34,7 +45,6 @@ class App < Sinatra::Base
     redirect '/login'
   end
 
-  # ---------- STUDENT CRUD ----------
   get '/' do
     @students = Student.all
     erb :index
