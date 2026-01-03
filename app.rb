@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'sinatra/base'
+
 require './models/student'
 require './models/user'
 
