@@ -30,5 +30,6 @@ class Student
   def self.search(keyword)
   COL.find({ name: /#{keyword}/i }).to_a
   end
+ 
   
 end
