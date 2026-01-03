@@ -25,6 +25,7 @@ class App < Sinatra::Base
   before do
     redirect '/login' unless session[:user] || request.path_info == '/login'
   end
+  
 
   get '/login' do
     erb :login
