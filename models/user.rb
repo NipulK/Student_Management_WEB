@@ -1,7 +1,8 @@
 require 'mongo'
-client = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_db')
-USERS = client[:users]
+Mongo::Logger.logger.level = ::Logger::FATAL
 
+client = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_web')
+USERS = client[:users]
 
 class User
   def self.create(username, password)

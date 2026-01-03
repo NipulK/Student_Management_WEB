@@ -22,10 +22,11 @@ class App < Sinatra::Base
   set :bind, '127.0.0.1'
   set :port, 4567
 
-  before do
-    redirect '/login' unless session[:user] || request.path_info == '/login'
-  end
-  
+before do
+  pass if request.path_info == '/login'
+  pass if request.path_info == '/logout'
+  redirect '/login' unless session[:user]
+end
 
   get '/login' do
     erb :login

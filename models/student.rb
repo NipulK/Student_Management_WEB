@@ -1,8 +1,7 @@
-require 'logger'
 require 'mongo'
 Mongo::Logger.logger.level = ::Logger::FATAL
 
-client = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_db')
+client = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_web')
 COL = client[:students]
 
 class Student
@@ -28,8 +27,6 @@ class Student
   end
 
   def self.search(keyword)
-  COL.find({ name: /#{keyword}/i }).to_a
+    COL.find({ name: /#{keyword}/i }).to_a
   end
- 
-  
 end
