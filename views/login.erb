@@ -7,13 +7,19 @@
       <p class="sub">Use your credentials to continue.</p>
     </div>
 
+    <% if @error %>
+      <div class="login-error">
+        <%= @error %>
+      </div>
+    <% end %>
+
     <form action="/login" method="post" class="login-form">
       <div class="input-box">
         <input type="text" name="username" required placeholder=" ">
         <label>Username</label>
       </div>
 
-      
+
       <div class="input-box">
         <input type="password" name="password" required placeholder=" ">
         <label>Password</label>

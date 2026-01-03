@@ -82,6 +82,18 @@ body {
   box-shadow: 0 0 35px #22d3ee;
 }
 
+/* ERROR MESSAGE */
+.login-error {
+  background: #ffeded;
+  color: #b00020;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
 /* ANIMATIONS */
 @keyframes fadeIn {
   from {opacity: 0}

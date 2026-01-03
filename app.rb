@@ -34,13 +34,16 @@ end
 
   post '/login' do
     user = User.authenticate(params[:username], params[:password])
+
     if user
       session[:user] = user[:username]
       redirect '/'
     else
-      redirect '/login'
+      @error = "❌ Invalid username or password"
+      erb :login
     end
   end
+
 
   get '/logout' do
     session.clear
