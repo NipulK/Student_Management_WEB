@@ -166,6 +166,19 @@ tr:hover {
   transform: scale(1.05);
 }
 
+/* Change text color for table data based on theme */
+.table-data {
+  color: var(--text);
+}
+
+body.light .table-data {
+  color: black;
+}
+
+body:not(.light) .table-data {
+  color: white;
+}
+
 /* FOOTER */
 .footer {
   margin-top: 40px;
