@@ -1,40 +1,40 @@
 <link rel="stylesheet" href="/forms.css">
 
-<div class="form-container fade-in">
+<div class="form-container">
   <h2>Edit Student</h2>
 
   <form action="/update/<%= @student[:_id] %>" method="post">
 
-    <div class="input-box">
-      <input type="text" name="name" value="<%= @student[:name] %>" required>
+    <div class="form-row">
       <label>Full Name</label>
+      <input type="text" name="name" value="<%= @student[:name] %>" required>
     </div>
 
-    <div class="input-box">
-      <input type="number" name="age" value="<%= @student[:age] %>" required>
+    <div class="form-row">
       <label>Age</label>
+      <input type="number" name="age" value="<%= @student[:age] %>" required>
     </div>
 
-    <div class="input-box">
-      <input type="text" name="address" value="<%= @student[:address] %>" required>
+    <div class="form-row">
       <label>Address</label>
+      <input type="text" name="address" value="<%= @student[:address] %>" required>
     </div>
 
-    <div class="input-box">
-      <input type="tel" name="mobile" value="<%= @student[:mobile] %>" required>
+    <div class="form-row">
       <label>Mobile Number</label>
+      <input type="tel" name="mobile" value="<%= @student[:mobile] %>" required>
     </div>
 
-    <div class="input-box">
-      <input type="text" name="nic" value="<%= @student[:nic] %>">
+    <div class="form-row">
       <label>NIC Number (Optional)</label>
+      <input type="text" name="nic" value="<%= @student[:nic] %>">
     </div>
 
-    <div class="input-box">
-      <input type="text" name="school" value="<%= @student[:school] %>" required>
+    <div class="form-row">
       <label>School Name</label>
+      <input type="text" name="school" value="<%= @student[:school] %>" required>
     </div>
 
-    <button class="neon-btn">Update Student</button>
+    <button class="form-btn">Update Student</button>
   </form>
 </div>
