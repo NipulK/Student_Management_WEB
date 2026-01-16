@@ -102,6 +102,27 @@ body:not(.light) {
   box-shadow: 0 2px 4px var(--form-shadow);
 }
 
+.back-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 12px;
+  text-align: center;
+  background: transparent;
+  color: var(--form-label);
+  border: 1px solid var(--form-border);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--form-border);
+  color: var(--form-text);
+  border-color: var(--form-primary);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .form-container {
