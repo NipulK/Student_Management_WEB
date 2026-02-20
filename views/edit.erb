@@ -16,13 +16,18 @@
     </div>
 
     <div class="form-row">
-      <label>Address</label>
-      <input type="text" name="address" value="<%= @student[:address] %>" required>
+      <label>Email</label>
+      <input type="email" name="email" value="<%= @student[:email] %>">
     </div>
 
     <div class="form-row">
       <label>Mobile Number</label>
       <input type="tel" name="mobile" value="<%= @student[:mobile] %>" required>
+    </div>
+
+    <div class="form-row">
+      <label>Address</label>
+      <input type="text" name="address" value="<%= @student[:address] %>" required>
     </div>
 
     <div class="form-row">
@@ -35,6 +40,22 @@
       <input type="text" name="school" value="<%= @student[:school] %>" required>
     </div>
 
+    <div class="form-row">
+      <label>Grade/Class</label>
+      <input type="text" name="grade" value="<%= @student[:grade] %>" placeholder="e.g., Grade 10">
+    </div>
+
+    <div class="form-row">
+      <label>GPA / Marks</label>
+      <input type="number" name="gpa" value="<%= @student[:gpa] %>" step="0.01" placeholder="e.g., 3.5">
+    </div>
+
+    <div class="form-row">
+      <label>Guardian Name</label>
+      <input type="text" name="guardian" value="<%= @student[:guardian] %>">
+    </div>
+
     <button class="form-btn">Update Student</button>
+    <a href="/student/<%= @student[:_id] %>" class="back-btn">Back to Profile</a>
   </form>
 </div>

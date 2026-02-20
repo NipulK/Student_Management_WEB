@@ -65,8 +65,13 @@ end
   end
 
   post '/create' do
-    Student.create(params[:name], params[:age])
+    Student.create(params)
     redirect '/'
+  end
+
+  get '/student/:id' do
+    @student = Student.find(params[:id])
+    erb :profile
   end
 
   get '/edit/:id' do
@@ -75,8 +80,8 @@ end
   end
 
   post '/update/:id' do
-    Student.update(params[:id], params[:name], params[:age])
-    redirect '/'
+    Student.update(params[:id], params)
+    redirect "/"
   end
 
   get '/delete/:id' do

@@ -5,7 +5,7 @@
     <a href="/new">+ Add Student</a>
 
     <form action="/search" method="get">
-      <input type="text" name="q" placeholder="Search by name">
+      <input type="text" name="q" placeholder="Search by name, email, or mobile">
       <button>Search</button>
     </form>
   </div>
@@ -15,6 +15,9 @@
       <tr>
         <th>Name</th>
         <th>Age</th>
+        <th>School</th>
+        <th>Mobile</th>
+        <th>Grade</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -22,12 +25,16 @@
     <tbody>
       <% @students.each do |s| %>
       <tr>
-        <td data-label="Name"><%= s[:name] %></td>
+        <td data-label="Name"><strong><%= s[:name] %></strong></td>
         <td data-label="Age"><%= s[:age] %></td>
+        <td data-label="School"><%= s[:school] %></td>
+        <td data-label="Mobile"><%= s[:mobile] %></td>
+        <td data-label="Grade"><%= s[:grade] || "—" %></td>
         <td data-label="Actions">
           <div class="actions">
-            <a class="edit-btn" href="/edit/<%= s[:_id] %>">Edit</a>
-            <a class="delete-btn" href="/delete/<%= s[:_id] %>">Delete</a>
+            <a class="profile-btn" href="/student/<%= s[:_id] %>">👁️ View</a>
+            <a class="edit-btn" href="/edit/<%= s[:_id] %>">✏️ Edit</a>
+            <a class="delete-btn" href="/delete/<%= s[:_id] %>">🗑️ Delete</a>
           </div>
         </td>
       </tr>
@@ -35,3 +42,19 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  .profile-btn {
+    background-color: #17a2b8;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .profile-btn:hover {
+    background-color: #138496;
+  }
+</style>

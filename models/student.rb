@@ -9,25 +9,6 @@ class Student
     COL.find.to_a
   end
 
-  def self.create(name, age)
-    COL.insert_one({ name: name, age: age })
-  end
-
-  def self.find(id)
-    COL.find(_id: BSON::ObjectId(id)).first
-  end
-require 'mongo'
-Mongo::Logger.logger.level = ::Logger::FATAL
-
-client = Mongo::Client.new(['127.0.0.1:27017'], database: 'student_web')
-COL = client[:students]
-
-class Student
-
-  def self.all
-    COL.find.to_a
-  end
-
   def self.create(data)
     COL.insert_one({
       name: data[:name],
@@ -35,7 +16,12 @@ class Student
       address: data[:address],
       mobile: data[:mobile],
       nic: data[:nic],
-      school: data[:school]
+      school: data[:school],
+      email: data[:email],
+      gpa: data[:gpa],
+      grade: data[:grade],
+      guardian: data[:guardian],
+      created_at: Time.now
     })
   end
 
@@ -51,7 +37,11 @@ class Student
         address: data[:address],
         mobile: data[:mobile],
         nic: data[:nic],
-        school: data[:school]
+        school: data[:school],
+        email: data[:email],
+        gpa: data[:gpa],
+        grade: data[:grade],
+        guardian: data[:guardian]
       }
     )
   end
@@ -65,22 +55,9 @@ class Student
       '$or' => [
         { name: /#{keyword}/i },
         { mobile: /#{keyword}/i },
-        { school: /#{keyword}/i }
+        { school: /#{keyword}/i },
+        { email: /#{keyword}/i }
       ]
     }).to_a
-  end
-end
-
-  def self.update(id, name, age)
-    COL.find(_id: BSON::ObjectId(id))
-       .update_one({ '$set' => { name: name, age: age } })
-  end
-
-  def self.delete(id)
-    COL.find(_id: BSON::ObjectId(id)).delete_one
-  end
-
-  def self.search(keyword)
-    COL.find({ name: /#{keyword}/i }).to_a
   end
 end
