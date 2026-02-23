@@ -1,61 +1,195 @@
-<link rel="stylesheet" href="/forms.css">
+<link rel="stylesheet" href="/dashboard.css">
 
-<div class="form-container">
-  <h2>Add Student</h2>
+<div class="card">
+  <div class="profile-header">
+    <h2>Add New Student</h2>
+    <div class="profile-actions">
+      <a href="/" class="back-btn">Back to Dashboard</a>
+    </div>
+  </div>
 
   <form action="/create" method="post">
+    <div class="profile-container">
+      <div class="profile-section">
+        <h3>Basic Information</h3>
+        <div class="info-row">
+          <label>Full Name</label>
+          <input class="edit-input" type="text" name="name" required>
+        </div>
+        <div class="info-row">
+          <label>Age</label>
+          <input class="edit-input" type="number" name="age" required>
+        </div>
+      </div>
 
-    <div class="form-row">
-      <label>Full Name</label>
-      <input type="text" name="name" required>
+      <div class="profile-section">
+        <h3>Contact Information</h3>
+        <div class="info-row">
+          <label>Email</label>
+          <input class="edit-input" type="email" name="email">
+        </div>
+        <div class="info-row">
+          <label>Mobile</label>
+          <input class="edit-input" type="tel" name="mobile" required>
+        </div>
+        <div class="info-row">
+          <label>Address</label>
+          <input class="edit-input" type="text" name="address" required>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>School Information</h3>
+        <div class="info-row">
+          <label>School Name</label>
+          <input class="edit-input" type="text" name="school" required>
+        </div>
+        <div class="info-row">
+          <label>Grade/Class</label>
+          <input class="edit-input" type="text" name="grade" placeholder="e.g., Grade 10">
+        </div>
+        <div class="info-row">
+          <label>GPA/Marks</label>
+          <input class="edit-input" type="number" name="gpa" step="0.01" placeholder="e.g., 3.5">
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Guardian Information</h3>
+        <div class="info-row">
+          <label>Guardian Name</label>
+          <input class="edit-input" type="text" name="guardian">
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Identification</h3>
+        <div class="info-row">
+          <label>NIC Number (Optional)</label>
+          <input class="edit-input" type="text" name="nic">
+        </div>
+      </div>
+
+      <div class="profile-actions-bottom">
+        <button class="edit-btn" type="submit">Save Student</button>
+        <a href="/" class="back-btn">Cancel</a>
+      </div>
     </div>
-
-    <div class="form-row">
-      <label>Age</label>
-      <input type="number" name="age" required>
-    </div>
-
-    <div class="form-row">
-      <label>Email</label>
-      <input type="email" name="email">
-    </div>
-
-    <div class="form-row">
-      <label>Mobile Number</label>
-      <input type="tel" name="mobile" required>
-    </div>
-
-    <div class="form-row">
-      <label>Address</label>
-      <input type="text" name="address" required>
-    </div>
-
-    <div class="form-row">
-      <label>NIC Number (Optional)</label>
-      <input type="text" name="nic">
-    </div>
-
-    <div class="form-row">
-      <label>School Name</label>
-      <input type="text" name="school" required>
-    </div>
-
-    <div class="form-row">
-      <label>Grade/Class</label>
-      <input type="text" name="grade" placeholder="e.g., Grade 10">
-    </div>
-
-    <div class="form-row">
-      <label>GPA / Marks</label>
-      <input type="number" name="gpa" step="0.01" placeholder="e.g., 3.5">
-    </div>
-
-    <div class="form-row">
-      <label>Guardian Name</label>
-      <input type="text" name="guardian">
-    </div>
-
-    <button class="form-btn">Save Student</button>
-    <a href="/" class="back-btn">Back to Dashboard</a>
   </form>
 </div>
+
+<style>
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1e293b;
+  }
+
+  .profile-header h2 {
+    margin: 0;
+    font-size: 26px;
+  }
+
+  .profile-header .profile-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .profile-section {
+    background: rgba(99, 102, 241, 0.08);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+  }
+
+  .profile-section h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--primary);
+  }
+
+  .info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .info-row label {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .edit-input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    background: #0b1222;
+    color: var(--text);
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .edit-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+
+  body.light .edit-input {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #111827;
+  }
+
+  .profile-actions-bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 2px solid #1e293b;
+  }
+
+  .profile-actions-bottom .edit-btn {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .profile-actions-bottom .back-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #1e293b;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .profile-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
