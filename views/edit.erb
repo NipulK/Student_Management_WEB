@@ -1,61 +1,205 @@
-<link rel="stylesheet" href="/forms.css">
+<link rel="stylesheet" href="/dashboard.css">
 
-<div class="form-container">
-  <h2>Edit Student</h2>
+<div class="card">
+  <div class="profile-header">
+    <h2>Edit: <%= @student[:name] %></h2>
+    <div class="profile-actions">
+      <a href="/student/<%= @student[:_id] %>" class="back-btn">Back to Profile</a>
+      <a href="/" class="back-btn">Dashboard</a>
+    </div>
+  </div>
 
   <form action="/update/<%= @student[:_id] %>" method="post">
+    <div class="profile-container">
+      <div class="profile-section">
+        <h3>Basic Information</h3>
+        <div class="info-row">
+          <label>Full Name</label>
+          <input class="edit-input" type="text" name="name" value="<%= @student[:name] %>" required>
+        </div>
+        <div class="info-row">
+          <label>Age</label>
+          <input class="edit-input" type="number" name="age" value="<%= @student[:age] %>" required>
+        </div>
+      </div>
 
-    <div class="form-row">
-      <label>Full Name</label>
-      <input type="text" name="name" value="<%= @student[:name] %>" required>
+      <div class="profile-section">
+        <h3>Contact Information</h3>
+        <div class="info-row">
+          <label>Email</label>
+          <input class="edit-input" type="email" name="email" value="<%= @student[:email] %>">
+        </div>
+        <div class="info-row">
+          <label>Mobile</label>
+          <input class="edit-input" type="tel" name="mobile" value="<%= @student[:mobile] %>" required>
+        </div>
+        <div class="info-row">
+          <label>Address</label>
+          <input class="edit-input" type="text" name="address" value="<%= @student[:address] %>" required>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>School Information</h3>
+        <div class="info-row">
+          <label>School Name</label>
+          <input class="edit-input" type="text" name="school" value="<%= @student[:school] %>" required>
+        </div>
+        <div class="info-row">
+          <label>Grade/Class</label>
+          <input class="edit-input" type="text" name="grade" value="<%= @student[:grade] %>" placeholder="e.g., Grade 10">
+        </div>
+        <div class="info-row">
+          <label>GPA/Marks</label>
+          <input class="edit-input" type="number" name="gpa" value="<%= @student[:gpa] %>" step="0.01" placeholder="e.g., 3.5">
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Guardian Information</h3>
+        <div class="info-row">
+          <label>Guardian Name</label>
+          <input class="edit-input" type="text" name="guardian" value="<%= @student[:guardian] %>">
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Identification</h3>
+        <div class="info-row">
+          <label>NIC Number</label>
+          <input class="edit-input" type="text" name="nic" value="<%= @student[:nic] %>">
+        </div>
+        <div class="info-row">
+          <label>Student ID</label>
+          <span class="id-pill"><%= @student[:_id] %></span>
+        </div>
+      </div>
+
+      <div class="profile-actions-bottom">
+        <button class="edit-btn" type="submit">Save Changes</button>
+        <a href="/student/<%= @student[:_id] %>" class="back-btn">Cancel</a>
+      </div>
     </div>
-
-    <div class="form-row">
-      <label>Age</label>
-      <input type="number" name="age" value="<%= @student[:age] %>" required>
-    </div>
-
-    <div class="form-row">
-      <label>Email</label>
-      <input type="email" name="email" value="<%= @student[:email] %>">
-    </div>
-
-    <div class="form-row">
-      <label>Mobile Number</label>
-      <input type="tel" name="mobile" value="<%= @student[:mobile] %>" required>
-    </div>
-
-    <div class="form-row">
-      <label>Address</label>
-      <input type="text" name="address" value="<%= @student[:address] %>" required>
-    </div>
-
-    <div class="form-row">
-      <label>NIC Number (Optional)</label>
-      <input type="text" name="nic" value="<%= @student[:nic] %>">
-    </div>
-
-    <div class="form-row">
-      <label>School Name</label>
-      <input type="text" name="school" value="<%= @student[:school] %>" required>
-    </div>
-
-    <div class="form-row">
-      <label>Grade/Class</label>
-      <input type="text" name="grade" value="<%= @student[:grade] %>" placeholder="e.g., Grade 10">
-    </div>
-
-    <div class="form-row">
-      <label>GPA / Marks</label>
-      <input type="number" name="gpa" value="<%= @student[:gpa] %>" step="0.01" placeholder="e.g., 3.5">
-    </div>
-
-    <div class="form-row">
-      <label>Guardian Name</label>
-      <input type="text" name="guardian" value="<%= @student[:guardian] %>">
-    </div>
-
-    <button class="form-btn">Update Student</button>
-    <a href="/student/<%= @student[:_id] %>" class="back-btn">Back to Profile</a>
   </form>
 </div>
+
+<style>
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1e293b;
+  }
+
+  .profile-header h2 {
+    margin: 0;
+    font-size: 26px;
+  }
+
+  .profile-header .profile-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .profile-section {
+    background: rgba(99, 102, 241, 0.08);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+  }
+
+  .profile-section h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--primary);
+  }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .info-row label {
+    font-weight: 600;
+  }
+
+  .edit-input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    background: #0b1222;
+    color: var(--text);
+  }
+
+  body.light .edit-input {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #111827;
+  }
+
+  .id-pill {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.15);
+    color: var(--accent);
+    font-size: 12px;
+    word-break: break-all;
+  }
+
+  .profile-actions-bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 2px solid #1e293b;
+  }
+
+  .profile-actions-bottom .edit-btn {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .profile-actions-bottom .back-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #1e293b;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .profile-container {
+      grid-template-columns: 1fr;
+    }
+
+    .info-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
