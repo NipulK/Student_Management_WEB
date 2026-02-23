@@ -241,12 +241,46 @@ window.onload = () => {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .topbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .theme-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
   .user-info {
     display: none;
   }
   
   .dropdown-arrow {
     display: none;
+  }
+
+  .user-profile-btn {
+    padding: 8px;
+  }
+
+  .user-area {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-btn span {
+    display: none;
+  }
+
+  .theme-btn {
+    padding: 8px;
+    width: 40px;
+    justify-content: center;
   }
 }
 </style>
