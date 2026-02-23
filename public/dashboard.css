@@ -237,6 +237,24 @@ body:not(.light) .table-data {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  .topbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .user-area {
+    gap: 12px;
+  }
+
+  .theme-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
   .container {
     padding: 20px;
   }
