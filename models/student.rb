@@ -21,6 +21,8 @@ class Student
       gpa: data[:gpa],
       grade: data[:grade],
       guardian: data[:guardian],
+      guardian_phone: data[:guardian_phone],
+      guardian_address: data[:guardian_address],
       created_at: Time.now
     })
   end
@@ -41,7 +43,9 @@ class Student
         email: data[:email],
         gpa: data[:gpa],
         grade: data[:grade],
-        guardian: data[:guardian]
+        guardian: data[:guardian],
+        guardian_phone: data[:guardian_phone],
+        guardian_address: data[:guardian_address]
       }
     )
   end
