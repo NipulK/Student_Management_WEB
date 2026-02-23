@@ -18,7 +18,7 @@
     </button>
     
     <div class="user-dropdown">
-      <button class="user-profile-btn" onclick="toggleUserMenu()">
+      <button class="user-profile-btn" onclick="toggleUserMenu(event)">
         <div class="user-avatar">👤</div>
         <div class="user-info">
           <span class="username"><%= session[:user] %></span>
@@ -35,19 +35,24 @@
             <div class="dropdown-email">admin@studentweb.com</div>
           </div>
         </div>
+
         <div class="dropdown-divider"></div>
+
         <a href="/" class="dropdown-item">
           <span class="item-icon">🏠</span>
-          Dashboard
+          <span>Dashboard</span>
         </a>
+
         <a href="/new" class="dropdown-item">
           <span class="item-icon">➕</span>
-          Add Student
+          <span>Add Student</span>
         </a>
+
         <div class="dropdown-divider"></div>
+
         <a href="/logout" class="dropdown-item logout-item">
           <span class="item-icon">🚪</span>
-          Logout
+          <span>Logout</span>
         </a>
       </div>
     </div>
@@ -66,22 +71,23 @@
 <script>
 function toggleTheme(){
   document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+  localStorage.setItem("theme",
+    document.body.classList.contains("light") ? "light" : "dark");
 }
 
-function toggleUserMenu() {
-  const dropdown = document.getElementById('userDropdown');
-  dropdown.classList.toggle('show');
+function toggleUserMenu(event){
+  event.stopPropagation();
+  const dropdown = document.getElementById("userDropdown");
+  dropdown.classList.toggle("show");
 }
 
-window.onclick = function(event) {
-  if (!event.target.closest('.user-dropdown')) {
-    const dropdown = document.getElementById('userDropdown');
-    if (dropdown && dropdown.classList.contains('show')) {
-      dropdown.classList.remove('show');
-    }
+/* close when clicking outside */
+document.addEventListener("click", function(e){
+  const dropdown = document.getElementById("userDropdown");
+  if(!e.target.closest(".user-dropdown")){
+    dropdown.classList.remove("show");
   }
-}
+});
 
 window.onload = () => {
   if(localStorage.getItem("theme") === "light"){
@@ -92,9 +98,7 @@ window.onload = () => {
 
 <style>
 
-/* ========================= */
-/* 🔥 NAVBAR ALIGNMENT FIXES */
-/* ========================= */
+/* ================= NAVBAR ALIGNMENT ================= */
 
 .topbar{
   display:flex;
@@ -107,7 +111,7 @@ window.onload = () => {
   display:flex;
   align-items:center;
   gap:14px;
-  margin-left:auto; /* pushes buttons to right */
+  margin-left:auto;
 }
 
 .user-dropdown{
@@ -118,97 +122,157 @@ window.onload = () => {
 
 .theme-btn,
 .user-profile-btn{
-  white-space:nowrap; /* prevents line break */
+  white-space:nowrap;
 }
 
+/* ================= THEME BUTTON ================= */
 
-/* ========================= */
-/* YOUR ORIGINAL STYLES BELOW */
-/* ========================= */
-
-.theme-btn {
-  background: rgba(99, 102, 241, 0.15);
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  color: var(--text);
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.theme-btn{
+  background: rgba(99,102,241,0.15);
+  border:1px solid rgba(99,102,241,0.4);
+  padding:10px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
 
-.theme-btn:hover {
-  background: rgba(99, 102, 241, 0.25);
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+/* ================= PROFILE BUTTON ================= */
+
+.user-profile-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background: rgba(99,102,241,0.1);
+  border:1px solid rgba(99,102,241,0.3);
+  padding:8px 14px;
+  border-radius:12px;
+  cursor:pointer;
 }
 
-.user-profile-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  padding: 8px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.user-avatar{
+  font-size:22px;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--primary);
+  border-radius:50%;
 }
 
-.user-avatar {
-  font-size: 24px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--primary);
-  border-radius: 50%;
+.user-info{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.username{
+  font-weight:600;
+  font-size:14px;
 }
 
-.username {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--text);
+.user-role{
+  font-size:11px;
+  background: rgba(34,211,238,0.15);
+  padding:2px 8px;
+  border-radius:6px;
+  margin-top:2px;
 }
 
-.user-role {
-  font-size: 11px;
-  color: var(--accent);
-  background: rgba(34, 211, 238, 0.15);
-  padding: 2px 8px;
-  border-radius: 6px;
-  margin-top: 2px;
+/* ================= DROPDOWN MENU ================= */
+
+.dropdown-menu{
+  position:absolute;
+  top:75px;
+  right:0;
+  width:260px;
+  background:var(--card);
+  border:1px solid rgba(99,102,241,0.25);
+  border-radius:14px;
+  box-shadow:0 18px 45px rgba(0,0,0,0.45);
+  overflow:hidden;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-12px) scale(0.98);
+  transition:all .25s ease;
+  z-index:9999;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background: var(--card);
-  border-radius: 12px;
-  min-width: 240px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+.dropdown-menu.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
 }
 
-.dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+/* header */
+.dropdown-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(99,102,241,0.18), transparent);
+}
+
+.dropdown-avatar{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+}
+
+.dropdown-name{
+  font-weight:700;
+  font-size:16px;
+}
+
+.dropdown-email{
+  font-size:12px;
+  color:#9ca3af;
+  margin-top:2px;
+}
+
+/* divider */
+.dropdown-divider{
+  height:1px;
+  background:rgba(255,255,255,0.08);
+  margin:8px 0;
+}
+
+/* items */
+.dropdown-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 18px;
+  text-decoration:none;
+  font-size:14px;
+  transition:all .18s ease;
+}
+
+.dropdown-item:hover{
+  background:rgba(99,102,241,0.18);
+  padding-left:22px;
+}
+
+.item-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+}
+
+.logout-item{
+  color:#f87171;
+}
+
+.logout-item:hover{
+  background:rgba(239,68,68,0.18);
 }
 
 </style>
